@@ -7,6 +7,8 @@ OR
 OR
     (`entry` = @STRING_ENTRY+2 AND `content_default` = 'The rate being applied to you is {}.\nThe current weekendxp configuration is:\nAnnounce {}\nAlwaysEnabled {}\nQuestOnly {}\nMaxLevel {}\nxpAmount {}\nIndividualXPEnabled {}\nEnabled {}\nMaxAllowedRate {}');
 
+DELETE FROM `acore_string_locale` WHERE `entry` IN (@STRING_ENTRY+0, @STRING_ENTRY+1, @STRING_ENTRY+2);
+
 DELETE FROM `module_string` WHERE `id` IN  (0, 1, 2) AND `module` = "mod-weekend-xp";
 INSERT INTO `module_string` (`module`, `id`, `string`) VALUES
 ("mod-weekend-xp", 0, 'Your experience rates were set to {}.'),
